@@ -31,7 +31,7 @@ func main() {
     var value string
     var n int64
     for n = 0; n < cl; n++ {
-        string,err = client.Get(Coffees[n])
+        value,err = client.Get(Coffees[n])
         option := string(n+1) + ". " + Coffees[n] + " : " + value + " Cups"
         fmt.Println(option)
     }
