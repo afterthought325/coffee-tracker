@@ -12,7 +12,7 @@ func main() {
 
     client = redis.New()
 
-    err = client.Connect("127.0.0.1",6973)
+    err = client.Connect("127.0.0.1",6379)
 
     if err != nil {
         fmt.Println("Connect failed: %s\n")
@@ -22,15 +22,15 @@ func main() {
     fmt.Println("Connected to redis-server.")
 
   // Get list of Current coffee Items
-    //var cl int64 // variable to store length of "coffees"
-    cl,err := client.LLen("coffees")
+    cl,err := client.LLen("coffees")// cl is a variable to store length of "coffees"
     // grab "coffees" list and store it in "Coffees" array
     Coffees := make([]string,int(cl))
     Coffees,err = client.LRange("coffees",0,-1)
     //print out each of the items
-    for n := 0; n <= int(cl); n++ {
-        fmt.Println(Coffees[n])
-    }
+    fmt.Print(Coffees)
+//    for n := 0; n <= int(cl); n++ {
+//        fmt.Println(Coffees[n])
+//    }
 
     client.Quit()
 
