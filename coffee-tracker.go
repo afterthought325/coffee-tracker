@@ -38,7 +38,7 @@ func main() {
     fmt.Println("Do you want to log a cup of coffee?","If so, input the number corresponding to the brewing method then hit enter, otherwise just hit enter")
     var input int
     var input_count int
-    input_count,err = fmt.Scanln(input)
+    input_count,err = fmt.Scanln(&input)
     if input_count != 0 {
         client.Incr(Coffees[input])
     }
