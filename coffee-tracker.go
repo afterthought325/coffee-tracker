@@ -30,8 +30,8 @@ func main() {
     //print out each of the items
     var n int64
     for n = 0; n < cl; n++ {
-        count,err = client.Get(Coffees[n])
-        option = string(n+1) + ". " + Coffees[n] + " : " + string(count) + " Cups"
+        count,err := client.Get(Coffees[n])
+        option := string(n+1) + ". " + Coffees[n] + " : " + string(count) + " Cups"
         fmt.Println(Coffees[n])
     }
 
