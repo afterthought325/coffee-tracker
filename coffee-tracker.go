@@ -27,10 +27,10 @@ func main() {
     Coffees := make([]string,int(cl))
     Coffees,err = client.LRange("coffees",0,-1)
     //print out each of the items
-    fmt.Print(Coffees)
-//    for n := 0; n <= int(cl); n++ {
-//        fmt.Println(Coffees[n])
-//    }
+    var n int64 
+    for n = 0; n <= cl; n++ {
+        fmt.Println(Coffees[n])
+    }
 
     client.Quit()
 
