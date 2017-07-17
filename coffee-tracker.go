@@ -32,7 +32,7 @@ func main() {
     var n int64
     for n = 0; n < cl; n++ {
         value,err = client.Get(Coffees[n])
-        fmt.Print(n+1,") ",Coffees[n]," : ",value," Cups")
+        fmt.Println(n+1,") ",Coffees[n]," : ",value," Cups")
     }
     fmt.Println("Do you want to log a cup of coffee?","If so, input the number corresponding to the brewing method then hit enter, otherwise just hit enter")
     var input int
