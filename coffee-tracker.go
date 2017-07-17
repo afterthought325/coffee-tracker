@@ -28,10 +28,11 @@ func main() {
     Coffees := make([]string,int(cl))
     Coffees,err = client.LRange("coffees",0,-1)
     //print out each of the items
-    var n,count int64
+    var value string
+    var n int64
     for n = 0; n < cl; n++ {
-        count,err = client.Get(Coffees[n])
-        option := string(n+1) + ". " + Coffees[n] + " : " + string(count) + " Cups"
+        string,err = client.Get(Coffees[n])
+        option := string(n+1) + ". " + Coffees[n] + " : " + value + " Cups"
         fmt.Println(option)
     }
 
