@@ -23,6 +23,16 @@ func main() {
 
     fmt.Println("Welcome to my Coffee Counter. You can see how many times I've made coffee with the given brew type. Then you can increment one when you've made another cup")
   // Get list of Current coffee Items
+
+    fmt.Println("Lets input your favorite Brewing Method, press enter to skip")
+    var input string
+    var input_count int
+    input_count,err = fmt.Scanln(&input)
+    if input_count !=0 {
+        client.Set(input,0)
+        client.LPushX("coffees",input)
+    }
+
     cl,err := client.LLen("coffees")// cl is a variable to store length of "coffees"
     // grab "coffees" list and store it in "Coffees" array
     Coffees := make([]string,int(cl))
@@ -35,11 +45,11 @@ func main() {
         fmt.Println(n+1,") ",Coffees[n]," : ",value," Cups")
     }
     fmt.Println("Do you want to log a cup of coffee?","If so, input the number corresponding to the brewing method then hit enter, otherwise just hit enter")
-    var input int
-    var input_count int
-    input_count,err = fmt.Scanln(&input)
+    var input_int int
+    input_count = 0
+    input_count,err = fmt.Scanln(&input_int)
     if input_count != 0 {
-        client.Incr(Coffees[input-1])
+        client.Incr(Coffees[input_int-1])
     }
 
     client.Quit()
